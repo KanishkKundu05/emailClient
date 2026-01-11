@@ -50,3 +50,13 @@ export const { auth, signIn, signOut, store } = convexAuth({
     },
   },
 });
+
+// Default export required by Convex for auth configuration
+export default {
+  providers: [
+    {
+      domain: process.env.CONVEX_SITE_URL,
+      applicationID: "convex",
+    },
+  ],
+};
