@@ -1,5 +1,6 @@
 "use client"
 
+import { useAuthActions } from "@convex-dev/auth/react"
 import {
   BadgeCheck,
   Bell,
@@ -40,6 +41,11 @@ export function NavUser({
   }
 }) {
   const { isMobile } = useSidebar()
+  const { signOut } = useAuthActions()
+
+  const handleSignOut = () => {
+    signOut()
+  }
 
   return (
     <SidebarMenu>
@@ -102,7 +108,7 @@ export function NavUser({
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>
+            <DropdownMenuItem onClick={handleSignOut}>
               <LogOut />
               Log out
             </DropdownMenuItem>

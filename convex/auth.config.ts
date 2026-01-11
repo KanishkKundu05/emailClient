@@ -20,18 +20,4 @@ export const { auth, signIn, signOut, store } = convexAuth({
       },
     }),
   ],
-  callbacks: {
-    async afterUserCreatedOrUpdated(ctx, { userId, existingUserId, profile, tokens }) {
-      // Store Google tokens for Gmail API access
-      if (tokens?.access_token) {
-        await ctx.db.patch(userId, {
-          googleAccessToken: tokens.access_token,
-          googleRefreshToken: tokens.refresh_token,
-          googleTokenExpiry: tokens.expires_at
-            ? tokens.expires_at * 1000
-            : undefined,
-        });
-      }
-    },
-  },
 });

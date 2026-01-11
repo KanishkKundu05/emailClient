@@ -1,7 +1,7 @@
 import { query } from "./_generated/server";
-import { auth } from "./auth.config";
+import { auth, signIn, signOut, store } from "./auth.config";
 
-export const { signIn, signOut, store } = auth;
+export { signIn, signOut, store };
 
 export const currentUser = query({
   args: {},

@@ -60,7 +60,7 @@ export function SignupForm({
         </p>
         <p className="text-muted-foreground text-sm text-center">
           Already have an account?{" "}
-          <a href="/signup" className="underline underline-offset-4">
+          <a href="/" className="underline underline-offset-4">
             Sign in
           </a>
         </p>
